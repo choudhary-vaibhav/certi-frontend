@@ -13,6 +13,12 @@ import {
   Fade,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
+
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
 import OpenInNewOutlinedIcon from "@material-ui/icons/OpenInNewOutlined";
 // import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 
@@ -43,6 +49,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function InstituteReg() {
+   const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
   
   const classes = useStyles();
   return (
@@ -66,7 +84,7 @@ function InstituteReg() {
         direction="column"
         align
       >
-        <Paper className={classes.paper} style={{ borderRadius: "10px" }}>
+        <Paper className={classes.paper} style={{ borderRadius: "10px",backgroundColor:"#252541" }}>
           <Card
             style={{
               border: "1px solid #363b98",
@@ -80,6 +98,72 @@ function InstituteReg() {
               </Typography>
             </CardContent>
           </Card>
+           <Form noValidate validated={validated} onSubmit={handleSubmit} style={{color:"#fff"}
+           }>
+      <Row style={{display:"block"}} >
+        <Form.Group as={Col} controlId="validationCustom01">
+          <Form.Label>Institute Account Address</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue="Mark"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} controlId="validationCustom02">
+          <Form.Label>Institute name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Last name"
+            defaultValue="Otto"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col}  controlId="validationCustomUsername">
+          <Form.Label>Institute Acronym</Form.Label>
+          <InputGroup hasValidation>
+            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please choose a username.
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
+      </Row>
+      <Row >
+        <Form.Group as={Col} controlId="validationCustom03">
+          <Form.Label>Institute website link</Form.Label>
+          <Form.Control type="text" placeholder="City" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid city.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col}  controlId="validationCustom04">
+          <Form.Label>Courses</Form.Label>
+          <Form.Control type="text" placeholder="State" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid state.
+          </Form.Control.Feedback>
+        </Form.Group>
+        
+      </Row>
+      <Form.Group >
+        <Form.Check
+          required
+          label="Agree to terms and conditions"
+          feedback="You must agree before submitting."
+          feedbackType="invalid"
+        />
+      </Form.Group>
+      <Button type="submit">Submit form</Button>
+    </Form>
           <Box m={4} />
           
           </Paper>

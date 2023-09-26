@@ -1,6 +1,6 @@
 body{
-    background: linear-gradient(89.5deg, rgb(4, 29, 55) -0.1%, rgb(2, 67, 135) 25.1%, rgb(28, 133, 243) 49.6%, rgb(115, 181, 250) 74.5%, rgb(214, 239, 253) 99.3%);
-  overflow: hidden;
+    background: linear-gradient(90deg, #06070B 0.16%, rgba(10, 12, 19, 0.98) 16.1%, rgba(12, 14, 23, 0.98) 28.58%, rgba(17, 19, 31, 0.96) 42.19%, rgba(18, 20, 33, 0.96) 55.71%, rgba(19, 21, 35, 0.95) 70.24%, rgba(20, 22, 37, 0.95) 87.5%, rgba(22, 24, 41, 0.94) 96.43%, rgba(26, 28, 48, 0.92) 102.56%, rgba(137, 156, 248, 0.27) 157.32%, rgba(104, 122, 194, 0.00) 158.04%, #18182A 158.04%);
+  overflow-x: hidden;
     
 }
 .MuiBox-root-4{
@@ -16,4 +16,8 @@ body{
     left: 25%;
     
     position: absolute;
+}
+.form-label {
+  margin-bottom: 0.5rem;
+  color: rgb(235 235 235 / 60%);
 }

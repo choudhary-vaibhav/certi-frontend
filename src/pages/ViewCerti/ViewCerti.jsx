@@ -74,7 +74,7 @@ function ViewCerti() {
         direction="column"
         align
       >
-        <Paper className={classes.paper} style={{ borderRadius: "10px" }}>
+        <Paper className={classes.paper} style={{ borderRadius: "10px",backgroundColor:"#252541" }}>
           <Card
             style={{
               border: "1px solid #363b98",
