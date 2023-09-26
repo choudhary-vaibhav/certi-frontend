@@ -75,7 +75,7 @@ export const Home = () => {
                 variant="contained"
                 color="primary"
                 size="large"
-                style={{ marginRight: "30px", fontWeight: "600" }}
+                style={{ marginRight: "30px", fontWeight: "600",backgroundColor:"#1D97D9" }}
                 component={Link}
                 to="/institute"
               >
@@ -85,7 +85,8 @@ export const Home = () => {
                 variant="contained"
                 color="default"
                 size="large"
-                style={{ backgroundColor: "white", fontWeight: "600" }}
+                style={{ backgroundColor: "white", fontWeight: "600",    border: "2px solid #1D97D9"
+ }}
                 component={Link}
                 to="/view"
               >

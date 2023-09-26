@@ -93,8 +93,8 @@ function InstituteReg() {
             }}
           >
             <CardContent style={{ textAlign: "center" }}>
-              <Typography variant="h5" color="primary">
-                View Certificate
+              <Typography variant="h6" color="primary">
+               Institute Registration
               </Typography>
             </CardContent>
           </Card>

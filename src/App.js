@@ -4,7 +4,9 @@ import { Home } from './pages/HomePage/HomePage';
 import ViewCerti from './pages/ViewCerti/ViewCerti';
 import InstituteReg from './pages/InstituteReg/InstituteReg';
 import DenseAppBar from './pages/Navbar/Navbar';
+
 import DisplayCerti from './pages/DisplayCerti/DisplayCerti';
+import Generatecerti from './pages/Generatecerti/Generatecerti';
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
         <Route path='/view' element = { <ViewCerti/> } exact/>
         <Route path='/institute' element = { <InstituteReg/> } exact />
         <Route path='/display' element = { <DisplayCerti/> } exact />
+        <Route path='/generatecerti' element = { <Generatecerti/> } exact />
       </Routes>
     </div>
   );
