@@ -14,9 +14,8 @@ import {
 const useStyles = makeStyles((theme) => ({
     root: {
       height: "calc(100vh - 64px)",
-      background: "rgb(116,65,249)",
-      background:
-        "linear-gradient(124deg, rgba(116,65,249,1) 0%, rgba(145,99,252,1) 36%, rgba(125,206,223,1) 100%)",
+      
+      
   
       overflow: "hidden",
     },
@@ -46,7 +45,7 @@ export const Home = () => {
             display="flex"
             flexDirection="column"
             justifyContent="center"
-            className={classes.leftPanel}
+           
           >
             <Box
               style={{
@@ -59,14 +58,17 @@ export const Home = () => {
             <Box m={0.5} />
             <Box style={{ fontSize: "60px", fontWeight: "900" }}>CertiGenVer</Box>
             <Box m={1.5} />
-            <Typography variant="body2">
+            <Typography variant="body2" style={{paddingBottom: "20px",
+    borderBottom: "1px solid #ccc",    textAlign: "center"}}>
               A Decentralized Certificate Issuance and Verification System to
               create certificates that are Immutable, Cryptographically Secured,
               and have Zero Downtime. All powered by decentralized Ethereum
               Smart Contracts{" "}
             </Typography>
+        
             <Box m={1.5} />
-            <Typography variant="h6">What are you looking for</Typography>
+
+            <Typography variant="h6">What are you looking for?</Typography>
             <Box m={1.5} />
             <Box display="flex">
               <Button
