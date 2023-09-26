@@ -1,0 +1,2 @@
+const InstitutionContractAddress = '0xE14EDD2A43c903fC0d833C19961277816eedF947';
+const CertificateContractAddress = '0x8536fFb4E1eaDB17a5Ca3209273BAA020dDaBba9';
