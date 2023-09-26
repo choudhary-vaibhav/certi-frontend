@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from 'react-router-dom';
 // External Components
 import {
   Typography,
@@ -102,57 +102,48 @@ function InstituteReg() {
            }>
       <Row style={{display:"block"}} >
         <Form.Group as={Col} controlId="validationCustom01">
-          <Form.Label>Institute Account Address</Form.Label>
+          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute Account Address</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="First name"
-            defaultValue="Mark"
+            placeholder="Account Address"
+            defaultValue="New Delhi"
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} controlId="validationCustom02">
-          <Form.Label>Institute name</Form.Label>
+          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute name</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Last name"
-            defaultValue="Otto"
+            placeholder="Institute Name"
+            defaultValue="BVCOE"
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col}  controlId="validationCustomUsername">
-          <Form.Label>Institute Acronym</Form.Label>
-          <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-            <Form.Control
-              type="text"
-              placeholder="Username"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
+          <Form.Label style={{color:"#fff", fontSize:"12px"}}>Institute Acronym</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Institute Acronym"
+            defaultValue="BVP"
+          />
             <Form.Control.Feedback type="invalid">
               Please choose a username.
             </Form.Control.Feedback>
-          </InputGroup>
+          
         </Form.Group>
       </Row>
       <Row >
         <Form.Group as={Col} controlId="validationCustom03">
-          <Form.Label>Institute website link</Form.Label>
+          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute website link</Form.Label>
           <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
+          <Form.Control.Feedback type="invalid" style={{fontSize:"12px"}}>
+            Please provide a valid link.
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col}  controlId="validationCustom04">
-          <Form.Label>Courses</Form.Label>
-          <Form.Control type="text" placeholder="State" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
-        </Form.Group>
-        
+      
       </Row>
       <Form.Group >
         <Form.Check
@@ -162,7 +153,28 @@ function InstituteReg() {
           feedbackType="invalid"
         />
       </Form.Group>
-      <Button type="submit">Submit form</Button>
+     <Box display="flex">
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                style={{ marginRight: "30px", fontWeight: "600" }}
+                component={Link}
+                to="/institute"
+              >
+                Issue Certificates
+              </Button>
+              <Button
+                variant="contained"
+                color="default"
+                size="large"
+                style={{ backgroundColor: "white", fontWeight: "600" }}
+                component={Link}
+                to="/view"
+              >
+                View Certificates
+              </Button>
+            </Box>
     </Form>
           <Box m={4} />
           
