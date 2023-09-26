@@ -13,7 +13,7 @@ import {
   Fade,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
+import {addInstitute} from "../../hooks";
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -50,14 +50,22 @@ const useStyles = makeStyles((theme) => ({
 
 function InstituteReg() {
    const [validated, setValidated] = useState(false);
+   const [instituteAddress, setInstituteAddress] = useState("");
+   const [instituteName, setInstituteName] = useState("");
+   const [instituteAcronym, setInstituteAcronym] = useState("");
+    const [instituteWebsite, setInstituteWebsite] = useState("");
 
-  const handleSubmit = (event) => {
+    // console.log(JSON.stringify(window.ethereum) + "ethereum")
+
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
 
+    await addInstitute(
+      instituteAddress,
+      instituteName,
+      instituteAcronym,
+      instituteWebsite
+    );
     setValidated(true);
   };
 
@@ -93,7 +101,7 @@ function InstituteReg() {
             }}
           >
             <CardContent style={{ textAlign: "center" }}>
-              <Typography variant="h6" color="primary">
+            <Typography variant="h6" color="primary">
                Institute Registration
               </Typography>
             </CardContent>
@@ -107,7 +115,8 @@ function InstituteReg() {
             required
             type="text"
             placeholder="Account Address"
-            defaultValue="New Delhi"
+            value={instituteAddress}
+            onChange={(e) => setInstituteAddress(e.target.value)}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -118,6 +127,8 @@ function InstituteReg() {
             type="text"
             placeholder="Institute Name"
             defaultValue="BVCOE"
+            value={instituteName}
+            onChange={(e) => setInstituteName(e.target.value)}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -128,6 +139,8 @@ function InstituteReg() {
             type="text"
             placeholder="Institute Acronym"
             defaultValue="BVP"
+            value={instituteAcronym}
+            onChange={(e) => setInstituteAcronym(e.target.value)}
           />
             <Form.Control.Feedback type="invalid">
               Please choose a username.
@@ -138,7 +151,7 @@ function InstituteReg() {
       <Row >
         <Form.Group as={Col} controlId="validationCustom03">
           <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute website link</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
+          <Form.Control type="text" placeholder="City" required value={instituteWebsite} onChange={(e) => setInstituteWebsite(e.target.value)}  />
           <Form.Control.Feedback type="invalid" style={{fontSize:"12px"}}>
             Please provide a valid link.
           </Form.Control.Feedback>
@@ -160,11 +173,13 @@ function InstituteReg() {
                 size="large"
                 style={{ marginRight: "30px", fontWeight: "600" }}
                 component={Link}
-                to="/institute"
+                // type="submit"
+                onClick={handleSubmit}
+                // to="/institute"
               >
-                Issue Certificates
+               Create Institute
               </Button>
-              <Button
+              {/* <Button
                 variant="contained"
                 color="default"
                 size="large"
@@ -173,7 +188,7 @@ function InstituteReg() {
                 to="/view"
               >
                 View Certificates
-              </Button>
+              </Button> */}
             </Box>
     </Form>
           <Box m={4} />

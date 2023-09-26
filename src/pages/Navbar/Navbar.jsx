@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '@material-ui/core';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { Link } from 'react-router-dom';
 
 export default function DenseAppBar() {
   return (
@@ -16,9 +18,18 @@ export default function DenseAppBar() {
       color="primary"
       size="large"
       style={{ marginRight: "0px", marginLeft: "80vw", fontWeight: "600" }}
+      component={Link}
+      to= "/"
     >
-    Connect to Wallet
+    home
     </Button>
+    <ConnectButton
+                  showBalance={false}
+                  accountStatus={{
+                    smallScreen: "avatar",
+                    largeScreen: "full",
+                  }}
+                />
         {/* <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />

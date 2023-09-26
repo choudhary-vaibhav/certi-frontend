@@ -13,7 +13,7 @@ import {
   Fade,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
+import {generateCertificate} from "../../hooks"
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -50,13 +50,15 @@ const useStyles = makeStyles((theme) => ({
 
 function InstituteReg() {
    const [validated, setValidated] = useState(false);
+   const [id, setID] = useState("");
+   const [candidateName, setCandidateName] = useState("");
+   const [creationDate, setCreationDate] = useState("");
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+
+    generateCertificate(id, candidateName, creationDate)
+    
 
     setValidated(true);
   };
@@ -102,71 +104,40 @@ function InstituteReg() {
            }>
       <Row style={{display:"block"}} >
         <Form.Group as={Col} controlId="validationCustom01">
-          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute Account Address</Form.Label>
+          <Form.Label style={{color:"#fff",fontSize:"12px"}}>ID</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Account Address"
-           
+            placeholder="ID"
+            value={id}
+            onChange={(e) => setID(e.target.value)}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} controlId="validationCustom02">
-          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute name</Form.Label>
+          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Candidate name</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Institute Name"
+            placeholder="Candidate Name"
+            value={candidateName}
+            onChange={(e) => setCandidateName(e.target.value)}
            
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col}  controlId="validationCustomUsername">
-          <Form.Label style={{color:"#fff", fontSize:"12px"}}>Institute Acronym</Form.Label>
+          <Form.Label style={{color:"#fff", fontSize:"12px"}}>Creation Date</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Institute Acronym"
-         
-          />
-            <Form.Control.Feedback type="invalid">
-              Please choose a username.
-            </Form.Control.Feedback>
-          
-        </Form.Group>
-      </Row>
-      <Row >
-        <Form.Group as={Col} controlId="validationCustom03">
-          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Institute website link</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid" style={{fontSize:"12px"}}>
-            Please provide a valid link.
-          </Form.Control.Feedback>
-        </Form.Group>
-      
-      </Row>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom01">
-          <Form.Label style={{color:"#fff",fontSize:"12px"}}>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-           
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="6" controlId="validationCustom02">
-          <Form.Label style={{color:"#fff",fontSize:"12px"}}>Last name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Last name"
+            placeholder="Creation Date"
+            value={creationDate}
+            onChange={(e) => setCreationDate(e.target.value)}
             
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        </Row>
+      </Row>
       <Form.Group >
         <Form.Check
           required
@@ -182,7 +153,7 @@ function InstituteReg() {
                 size="large"
                 style={{ marginRight: "30px", fontWeight: "600" }}
                 component={Link}
-                to="/"
+                onClick={handleSubmit}
               >
                Submit
               </Button>

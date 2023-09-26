@@ -80,7 +80,18 @@ export const Home = () => {
                 component={Link}
                 to="/institute"
               >
-                Issue Certificates
+                Create Institution
+              </Button>
+              <Button
+                variant="contained"
+                color="default"
+                size="large"
+                style={{marginRight: "30px", backgroundColor: "white", fontWeight: "600",    border: "2px solid #1D97D9"
+ }}
+                component={Link}
+                to="/generatecerti"
+              >
+                Generate Certificates
               </Button>
               <Button
                 variant="contained"

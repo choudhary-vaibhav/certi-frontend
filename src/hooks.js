@@ -1,20 +1,19 @@
 import InstitutionCONTRACT_ABI from './abis/institutionabi.json'
 import CertificateCONTRACT_ABI from './abis/certificateabi.json'
-import { FACTORY_CONTRACT_ADDRESS } from "./constants";
+import { InstitutionContractAddress, CertificateContractAddress } from "./constants";
 import { ethers } from "ethers";
 
-
 const getInstitutionContract = () => {
-    const provider = new ethers.providers.Web3Provider(ethereum);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    const institutionContract = new ethers.Contract(FACTORY_CONTRACT_ADDRESS, InstitutionCONTRACT_ABI, signer);
+    const institutionContract = new ethers.Contract(InstitutionContractAddress, InstitutionCONTRACT_ABI, signer);
     return institutionContract;
   };
 
   const getCertificateContract = () => {
-    const provider = new ethers.providers.Web3Provider(ethereum);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    const institutionContract = new ethers.Contract(FACTORY_CONTRACT_ADDRESS, CertificateCONTRACT_ABI, signer);
+    const institutionContract = new ethers.Contract(CertificateContractAddress, CertificateCONTRACT_ABI, signer);
     return institutionContract;
   };
 

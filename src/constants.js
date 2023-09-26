@@ -1,2 +1,2 @@
-const InstitutionContractAddress = '0xE14EDD2A43c903fC0d833C19961277816eedF947';
-const CertificateContractAddress = '0x8536fFb4E1eaDB17a5Ca3209273BAA020dDaBba9';
+export const InstitutionContractAddress = '0xf2da060e4178E02532d6FdE8CFa10af3bfd68Ef3';
+export const CertificateContractAddress = '0x22FACC780EC02e44e851390968c2Ed5AE1758A9D';
