@@ -39,6 +39,7 @@ export const Home = () => {
   return (
     <>
       <Grid container className={classes.root}>
+
         <Grid item xs={12} md={6}>
           <Box
             style={{ height: "100%" }}
@@ -56,7 +57,7 @@ export const Home = () => {
               Verifiable Certificates
             </Box>
             <Box m={0.5} />
-            <Box style={{ fontSize: "60px", fontWeight: "900" }}>CertiGenVer</Box>
+            <Box style={{ fontSize: "60px", fontWeight: "900" }}>प्रमाणchain</Box>
             <Box m={1.5} />
             <Typography variant="body2" style={{paddingBottom: "20px",
     borderBottom: "1px solid #ccc",    textAlign: "center"}}>
